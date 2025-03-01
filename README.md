@@ -1,4 +1,4 @@
-# 🚀 David Mandado's Portfolio
+# David Mandado's Portfolio
 
 Welcome to my personal **portfolio website**! 🎨💻  
 This site showcases my **projects, skills, and experience** in **Data Science, Computer Science, and Engineering**.
@@ -10,11 +10,11 @@ This site showcases my **projects, skills, and experience** in **Data Science, C
 
 ## 📌 Features
 
-✅ **Modern & Responsive Design** – Looks great on all devices  
-✅ **Dark Mode Support** – Because who doesn’t love dark mode? 🌑  
-✅ **Custom Animations** – Subtle interactions for a smooth user experience  
-✅ **Portfolio & Blog** – Showcasing my work and insights  
-✅ **Contact Form** – Reach out to me directly  
+ **Modern & Responsive Design** – Looks great on all devices  
+ **Dark Mode Support** – Because who doesn’t love dark mode? 🌑  
+ **Custom Animations** – Subtle interactions for a smooth user experience  
+ **Portfolio & Blog** – Showcasing my work and insights  
+ **Contact Form** – Reach out to me directly  
 
 ---
 
@@ -26,20 +26,19 @@ This site showcases my **projects, skills, and experience** in **Data Science, C
 
 ---
 
-## 🚀 Setup & Run Locally
+## Setup & Run Locally
 
 1️⃣ **Clone the repository**
 ```sh
 git clone https://github.com/DavidMandado/your-portfolio.git
+```
+
 2️⃣ Navigate to the project folder
 
-sh
-Copiar
-Editar
+```sh
 cd your-portfolio
-3️⃣ Open index.html in your browser or use a local server like:
+```
 
-sh
-Copiar
-Editar
-npx serve
+```sh
+3️⃣ Open index.html in your browser or use a local server like:
+```
