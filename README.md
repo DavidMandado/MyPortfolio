@@ -3,7 +3,7 @@
 Welcome to my personal **portfolio website**! 
 This site showcases my **projects, skills, and experience** in **Data Science, Computer Science, and Engineering**.
 
- **Live Website:** [www.cyrusml.com](https://www.cyrusml.com)  (STill in construction...)
+ **Live Website:** [www.cyrusml.com](https://www.cyrusml.com)  (Still in construction..., currently shows old version)
  **GitHub Repo:** [github.com/DavidMandado](https://github.com/DavidMandado)
 
 ---
@@ -49,4 +49,4 @@ npx serve
 ## Contact
 - **Email: david.manda.loureiro@gmail.com**
 - **Number: +34 604026586**
-Which can also be found in the portfolio's contact section.
+- (Which can also be found in the portfolio's contact section)
