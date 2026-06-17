@@ -48,5 +48,4 @@ npx serve
 
 ## Contact
 - **Email: david.manda.loureiro@gmail.com**
-- **Number: +34 604026586**
 - (Which can also be found in the portfolio's contact section)
