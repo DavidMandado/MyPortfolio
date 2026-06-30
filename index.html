@@ -1,754 +1,674 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
 
-    <!-- Read and update content attributes accordingly  -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Portfolio of David Mandado, a Data Science and Computer Science & Engineering student building machine learning, analytics, and software systems." />
 
-    <meta
-      name="description"
-      content="Welcome to my portfolio website. I am a front-end web developer and I specialize in creating user-friendly, responsive and accessible websites. Explore my projects, open-source work and contact me for any inquiries or collaborations."
-    />
+  <meta itemprop="name" content="David Mandado Portfolio" />
+  <meta itemprop="description"
+    content="Data Science, software engineering, machine learning, and analytics portfolio." />
+  <meta itemprop="image" content="assets/images/sharing-card.png" />
 
-    <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content="David Mandado's Portfolio">
-<meta itemprop="description" content="Welcome to my portfolio website. I am a Data Scientist and Computer Scientist and Engineer, very eager to work on new projects and teams.">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="David Mandado Portfolio" />
+  <meta property="og:description" content="Data Science and Computer Science & Engineering portfolio." />
+  <meta property="og:image" content="assets/images/sharing-card.png" />
 
-<!-- Reference screenshot of updated site's header in place of content -->
-<meta itemprop="image" content="assets/images/sharing-card.png">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="David Mandado Portfolio" />
+  <meta name="twitter:description"
+    content="Data Science, software engineering, machine learning, and analytics portfolio." />
+  <meta name="twitter:image" content="assets/images/sharing-card.png" />
 
-<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://ossportfolio.netlify.app">
-<meta property="og:type" content="website">
-<meta property="og:title" content="David Mandado's Portfolio">
-<meta property="og:description" content="Welcome to my portfolio website. I am a front-end web developer and I specialize in creating user-friendly, responsive and accessible websites. Explore my projects, open-source work and contact me for any inquiries or collaborations.">
+  <link rel="shortcut icon" href="assets/images/webicon (2).png" type="image/png" />
+  <link rel="preload" href="assets/fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    document.documentElement.dataset.theme =
+      localStorage.getItem("portfolio-theme") || "light";
+  </script>
+  <script src="script.js" defer></script>
 
-<!-- Reference screenshot of updated site's header in content -->
-<meta property="og:image" content="assets/images/sharing-card.png">
+  <title>David Mandado Portfolio</title>
+</head>
 
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="David Mandado's Portfolio">
-<meta name="twitter:description" content="Welcome to my portfolio website. I am a front-end web developer and I specialize in creating user-friendly, responsive and accessible websites. Explore my projects, open-source work and contact me for any inquiries or collaborations.">
+<body>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Go to top">
+      <span>David Mandado</span>
+    </a>
 
-<!-- Reference screenshot of updated site's header in content -->
-<meta name="twitter:image" content="assets/images/sharing-card.png">
-
-
-<!-- Update favicon href attribute with image of yourself -->
-    <link
-      rel="shortcut icon"
-      href="assets/images/webicon (2).png"
-      type="image/png"
-    />
-
-    <!-- Preloading fonts for better performance -->
-
-    <link
-      rel="preload"
-      href="assets/fonts/Mona-Sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <link rel="stylesheet" href="style.css"  />
-    <script src="script.js" defer></script>
-
-    <!-- Your name here -->
-    <title>David Mandado's Portfolio</title>
-  </head>
-
-  <body>
-
-    <script>
-      const theme = localStorage.getItem("theme") || "dark";
-      document.body.classList.add(theme);
-    </script>
-
-    <header class="header">
-
-      <div class="menu-btn-container">
-        <div class="container">
-          <button type="button"  class="menu-btn">menu</button>
-        </div>
+    <nav class="site-nav" aria-label="Primary navigation" data-nav>
+      <a class="nav-link active" href="#about">About</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#stack">Stack</a>
+      <a class="nav-link" href="#interests">Interests</a>
+      <div class="nav-actions">
+        <button class="nav-action" type="button" data-open-resume>Resume</button>
+        <button class="nav-action primary" type="button" data-open-contact>Contact</button>
       </div>
+    </nav>
 
-      <nav class="nav hidden">
-        <ol class="nav-items">
-          <li class="nav-item"><a href="#">Home</a></li>
-          <li class="nav-item"><a href="#about">About Me</a></li>
-          <li class="nav-item"><a href="#work">My Work</a></li>
-          <li class="nav-item"><a href="#blog">See Blog</a></li>
-          <li class="nav-item"><a href="#skills">My Skills</a></li>
-          <li class="nav-item">
-            <a href="#contact" data-focused="last-focused">Contact</a>
-          </li>
-        </ol>
-      </nav>
+    <div class="header-actions">
+      <button class="icon-button theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path
+            d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95 6.95 1.42 1.42M3.63 3.63l1.42 1.42m13.9-1.42-1.42 1.42M5.05 18.95l-1.42 1.42" />
+          <circle cx="12" cy="12" r="4" />
+        </svg>
+      </button>
+      <button class="pill-button ghost" type="button" data-open-resume>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7 3h7l4 4v14H7z" />
+          <path d="M14 3v5h5M10 13h6M10 17h6M10 9h2" />
+        </svg>
+        Resume
+      </button>
+      <button class="pill-button primary" type="button" data-open-contact>Contact</button>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-      <div class="container">
-        <div class="header-textbox">
-          <!-- Replace with your name and job title -->
-          <h1 class="h1">
-            <span>Hi, I'm David Mandado</span>
-            <span>Data Scientist & <br> Computer Scientist and Engineer</span>
+  <main id="top">
+    <section class="hero section-band" id="about" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="availability">
+            <span></span>
+            "Sapere aude", Horace.
+          </p>
+          <h1 id="hero-title">
+            David Mandado
+            <span>Data Scientist &amp; Software Engineer.</span>
           </h1>
-
-          <!-- Add a small introductory paragraph about yourself -->
-          <p class="header-text">
-            A dedicated enthusiast combining the best of both worlds, data science and computer science.
+          <p class="hero-text">
+            Data Science and Computer Science &amp; Engineering student in
+            Eindhoven with experience across MLOps, applied machine learning,
+            analytics, and consulting.
           </p>
 
-          <div class="header-btns">
-            <a href="#contact" class="btn btn-cta">Contact me</a>
-            <a href="#work" class="btn btn-secondary">See my work</a>
+          <div class="hero-actions" aria-label="Main actions">
+            <a class="pill-button primary large" href="#projects">
+              My Projects
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a class="pill-button ghost large" href="https://github.com/DavidMandado" target="_blank" rel="noopener">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.61-3.37-1.18-3.37-1.18-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.04 1.53 1.04.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 6.02c.85 0 1.7.11 2.5.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" />
+              </svg>
+              GitHub Portfolio
+            </a>
+            <button class="round-button" type="button" data-open-contact aria-label="Email David">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+            </button>
+            <a class="round-button" href="https://www.linkedin.com/in/david-mandado-loureiro-a75a51330/" target="_blank"
+              rel="noopener" aria-label="LinkedIn profile">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M6.5 10.5V19M6.5 6v.01M10.5 19v-8.5M10.5 14.5c0-2.2 1.2-4 3.5-4s3.5 1.55 3.5 4V19" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <aside class="profile-panel" data-reveal aria-label="Profile summary">
+          <div class="portrait-frame">
+            <img src="assets/images/myprofpic.jpg" alt="Portrait of David Mandado" />
+          </div>
+          <div class="profile-meta">
+            <div>
+              <span>Location</span>
+              <strong>Eindhoven, Netherlands</strong>
+            </div>
+            <div>
+              <span>Current focus</span>
+              <strong>MLOps & Data Engineering.</strong>
+            </div>
+            <div>
+              <span>Education</span>
+              <strong>Double bachelor's TU/Eindhoven</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="projects section-band" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading wide" data-reveal>
+          <p class="eyebrow">Selected work</p>
+          <h2 id="projects-title">Project case studies with room for depth</h2>
+          <p>
+            Each project can open into a larger case-study view with long-form
+            notes, extra images, links, and GitHub references. The card images
+            are only visual hints and can be replaced with final screenshots.
+          </p>
+        </div>
+
+        <div class="filter-tabs" role="tablist" aria-label="Filter projects" data-reveal>
+          <button class="filter-tab active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-tab" type="button" data-filter="ml" aria-pressed="false">ML</button>
+          <button class="filter-tab" type="button" data-filter="data" aria-pressed="false">Data</button>
+          <button class="filter-tab" type="button" data-filter="software" aria-pressed="false">Software</button>
+          <button class="filter-tab" type="button" data-filter="web" aria-pressed="false">Web</button>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card" data-category="ml data web" data-project="crime" data-reveal>
+            <div class="project-media">
+              <img src="assets/images/abciamge.jpg"
+                alt="Crime and security data science project placeholder screenshot" />
+            </div>
+            <div class="project-body">
+              <div class="card-topline">
+                <span>Data science dashboard</span>
+                <small>Feb 2025 - May 2025</small>
+              </div>
+              <h3>Real-World Crime and Security Data Science</h3>
+              <p>
+                Integrated large crime, socio-economic, and geospatial
+                datasets into forecasting models and an interactive analysis
+                dashboard.
+              </p>
+              <ul class="tag-list">
+                <li>Python</li>
+                <li>LightGBM</li>
+                <li>GeoPandas</li>
+                <li>Dash</li>
+              </ul>
+              <button class="text-button" type="button" data-project-open="crime">Open case study</button>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ml data" data-project="xray" data-reveal>
+            <div class="project-media">
+              <img src="assets/images/work/agency-elevation.webp"
+                alt="Medical machine learning placeholder screenshot" />
+            </div>
+            <div class="project-body">
+              <div class="card-topline">
+                <span>Deep learning</span>
+                <small>Feb 2025 - Apr 2025</small>
+              </div>
+              <h3>University Data Challenge - X-ray ML Model</h3>
+              <p>
+                Deep learning diagnostic model for chest X-ray analysis with
+                preprocessing, augmentation, and multi-class evaluation.
+              </p>
+              <ul class="tag-list">
+                <li>PyTorch</li>
+                <li>OpenCV</li>
+                <li>Docker</li>
+              </ul>
+              <button class="text-button" type="button" data-project-open="xray">Open case study</button>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="data software" data-project="airline" data-reveal>
+            <div class="project-media">
+              <img src="assets/images/work/contribute-dev.webp" alt="Sentiment analysis placeholder screenshot" />
+            </div>
+            <div class="project-body">
+              <div class="card-topline">
+                <span>NLP analytics</span>
+                <small>Feb 2024 - Apr 2024</small>
+              </div>
+              <h3>University Airline Twitter Analysis</h3>
+              <p>
+                Cleaned multilingual Air France tweets, stored processed data
+                in SQLite, and extracted support-performance sentiment
+                insights.
+              </p>
+              <ul class="tag-list">
+                <li>Python</li>
+                <li>SQLite</li>
+                <li>VADER</li>
+                <li>spaCy</li>
+              </ul>
+              <button class="text-button" type="button" data-project-open="airline">Open case study</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-stack section-band" aria-label="Experience and stack">
+      <div class="container experience-layout">
+        <div id="experience" class="experience-main" data-reveal>
+          <div class="section-heading">
+            <p class="eyebrow">Work history</p>
+            <h2>Professional experience in ML, data, and consulting</h2>
+          </div>
+
+          <div class="work-table">
+            <article class="work-row">
+              <div class="work-date">Apr 2026 - Present</div>
+              <div class="work-content">
+                <div class="work-title">
+                  <h3>MLOps Engineer</h3>
+                  <span>mih360 | Eindhoven | Hybrid</span>
+                </div>
+                <p>
+                  Architected and automated CI/CD pipelines for machine
+                  learning, moving models from experimental notebooks to
+                  production-ready APIs while improving deployment
+                  reproducibility.
+                </p>
+                <div class="tool-row">Python, FastAPI, GitHub Actions, Docker, Git, Linux, CI/CD</div>
+              </div>
+            </article>
+
+            <article class="work-row">
+              <div class="work-date">Feb 2026 - Present</div>
+              <div class="work-content">
+                <div class="work-title">
+                  <h3>Data Consultant</h3>
+                  <span>180 Degrees Consulting Tilburg | Hybrid</span>
+                </div>
+                <p>
+                  Advised organizations on data-driven strategy and
+                  operational improvement through business analysis,
+                  analytical frameworks, market analysis, and financial
+                  analysis.
+                </p>
+                <div class="tool-row">Excel, data analysis, business analysis, market analysis, financial analysis</div>
+              </div>
+            </article>
+
+            <article class="work-row">
+              <div class="work-date">Jun 2025 - Apr 2026</div>
+              <div class="work-content">
+                <div class="work-title">
+                  <h3>Junior Data Scientist</h3>
+                  <span>mih360 | Remote</span>
+                </div>
+                <p>
+                  Applied machine learning to industrial optimization and
+                  workforce analytics, developing predictive models,
+                  statistical learning pipelines, and operational
+                  decision-support systems.
+                </p>
+                <div class="tool-row">Python, pandas, scikit-learn, SQL, Jupyter, Git, statistical modeling</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="stack" class="stack-column" data-reveal>
+          <div class="section-heading">
+            <p class="eyebrow">Education &amp; stack</p>
+            <h2>Double bachelor with applied technical tooling</h2>
+          </div>
+
+          <article class="education-card">
+            <span>2023 - Present</span>
+            <h3>Double Bachelor: Data Science and Computer Science &amp; Engineering</h3>
+            <p>
+              Joint Data Science program at TU Eindhoven and Tilburg
+              University, combined with Computer Science &amp; Engineering at
+              TU Eindhoven.
+            </p>
+            <p>
+              Coursework includes data mining, NLP, data structures, machine
+              learning, data analytics, data ethics, visualization,
+              statistical computing, econometrics, Java programming, computer
+              systems, logic, and discrete mathematics.
+            </p>
+          </article>
+
+          <div class="stack-groups">
+            <div class="stack-group">
+              <h3>Programming</h3>
+              <div class="chip-grid">
+                <span>Python</span>
+                <span>JavaScript</span>
+                <span>TypeScript</span>
+                <span>SQL</span>
+              </div>
+            </div>
+            <div class="stack-group">
+              <h3>Machine learning</h3>
+              <div class="chip-grid">
+                <span>Pandas / NumPy</span>
+                <span>scikit-learn</span>
+                <span>PyTorch</span>
+                <span>OpenCV</span>
+                <span>TensorFlow/Keras</span>
+                <span>LightGBM</span>
+              </div>
+            </div>
+            <div class="stack-group">
+              <h3>MLOps &amp; software</h3>
+              <div class="chip-grid">
+                <span>FastAPI</span>
+                <span>Flask / Dash</span>
+                <span>Docker</span>
+                <span>GitHub Actions</span>
+                <span>Linux</span>
+                <span>CI/CD</span>
+              </div>
+            </div>
+            <div class="stack-group">
+              <h3>Data systems</h3>
+              <div class="chip-grid">
+                <span>SQLite</span>
+                <span>PostgreSQL</span>
+                <span>GeoPandas</span>
+                <span>Dashboards</span>
+                <span>Visualization</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="client">
-        <div class="container">
-              <!-- Add a small introductory paragraph about yourself -->
-          <h2 class="h2">Coming from:
-          </h2>
-          <div class="logos">
-            <!-- Replace alt with client/company name and src attributes of images with path to relative img of client logo -->
-            <div class="logo-group">
-              <img
-                loading="lazy"
-                src="assets/images/trusted-by/Eindhoven_University_of_Technology_logo_new.svg.png"
-                alt="Ideacraft"
-                class="logo hide to-top"
-              />
-
-              <img
-                loading="lazy"
-                src="assets/images/trusted-by/Eindhoven_University_of_Technology_logo_new.svg.png"
-                alt="Golden grid"
-                class="logo"
-              />
-
-              <img
-                loading="lazy"
-                src="assets/images/trusted-by/Eindhoven_University_of_Technology_logo_new.svg.png"
-                alt="Theia"
-                class="logo hide to-bottom"
-              />
-            </div>
-            <div class="logo-group tilburg">
-              <img
-                loading="lazy"
-                src="assets/images/trusted-by/7_kleur-500x240.png"
-                alt="Agency elevation"
-                class="logo hide to-top"
-              /><img
-                loading="lazy"
-                src="assets/images/trusted-by/7_kleur-500x240.png"
-                alt="Ron jones"
-                class="logo"
-              /><img
-                loading="lazy"
-                src="assets/images/trusted-by/7_kleur-500x240.png"
-                alt="Mighty furniture's"
-                class="logo hide to-bottom"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about">
-        <div class="container">
-          <h2 class="h2" id="about">About Me</h2>
-          <div class="about-box">
-            <div class="about-textbox">
-                  <ul class="about-list">
-                    <li>Currently based in <span class="highlight">Eindhoven, Netherlands</span>.</li>
-                    <li><span class="highlight">Double Bachelor's Degree:</span>
-                      <ul class="nested-list">
-                        <li><span class="highlight">Joint BSc in Data Science</span> at <span class="highlight">TU Eindhoven</span> and <span class="highlight">TU Tilburg</span>.</li>
-                        <li><span class="highlight">BSc in Computer Science & Engineering</span> at <span class="highlight">TU Eindhoven</span>.</li>
-                      </ul>
-                    </li>
-                    <li>At the moment looking for <span class="highlight">internship/work</span> or collaborative project to apply my knowledge.</li>
-                    <li>Passionate about <span class="key-concept">AI-driven solutions</span>, <span class="key-concept">Machine Learning</span>, and the intersection of <span class="key-concept">data and software</span>. I love building <span class="key-concept">intelligent systems</span>, optimizing <span class="key-concept">algorithms</span>, and leveraging <span class="key-concept">technology</span> to solve real-world challenges.</li>
-                    <li>You can contact me at: <span class="email-highlight">david.manda.loureiro@gmail.com</span> or <br> <span class="email-highlight">+34 604026586</span></li>
-                  </ul>
-                  
-            </div>
-      
-            <picture class="about-img">
-              <img loading="lazy" src="assets/images/myprofpic.jpg" alt="Your Name" />
-            </picture>
-          </div>
-        </div>
-      </section>
-
-      <section class="education">
-        <div class="container">
-          <h2 class="h2">Education</h2>
-          <div class="row">
-            <div class="col-md-12 col-lg-8 offset-lg-2">
-              
-              <article class="education-item">
-                <i class="education-icon fa fa-graduation-cap"></i>
-                <h3 class="education-date">2021-2023</h3>
-                <div class="card">
-                  <div class="card-body education-grid">
-                    <div class="education-logo">
-                      <img src="assets/images/ib.png" alt="IB logo">
-                    </div>
-                    <div class="education-content">
-                      <h5 class="card-title"> <a href="">
-                            Bilingual International Baccalaureate for Science.</a> </h5>
-                      <h6 class="card-subtitle"> <a href="">Obradoiro International School - Spain</a> </h6>
-                      <p class="card-text text-muted">Baccalaureate with specifics in Science. Higher level courses: Mathematics, Physics, and English. Other relevant courses: Business Management.</p>
-                    </div>
-                  </div>
-                </div>
-              </article>
-      
-              <article class="education-item">
-                <i class="education-icon fa fa-graduation-cap"></i>
-                <h3 class="education-date">2023-2024</h3>
-                <div class="card">
-                  <div class="card-body education-grid">
-                    <!-- Logos Container -->
-                    <div class="logos-container">
-                      <img src="assets/images/trusted-by/7_kleur-500  x240.png" alt="TU Tilburg Logo" class="education-logo">
-                      <img src="assets/images/trusted-by/Eindhoven_University_of_Technology_logo_new.svg.png" alt="TU Eindhoven Logo" class="education-logo">
-                    </div>
-                    
-                    <!-- Education Content -->
-                    <div class="education-content">
-                      <h5 class="card-title"> 
-                        <a href="">Joint BSc in Data Science</a> 
-                      </h5>
-                      <h6 class="card-subtitle"> 
-                        <a href="">TU Eindhoven & TU Tilburg</a> 
-                      </h6>
-                      <p class="card-text text-muted">Relevant courses taken:</p>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              
-      
-              <article class="education-item">
-                <i class="education-icon fa fa-graduation-cap"></i>
-                <h3 class="education-date">2024-Now</h3>
-                <div class="card">
-                  <div class="card-body education-grid">
-                      <div class="logos-container">
-                        <img src="assets/images/trusted-by/7_kleur-500x240.png" alt="TU Tilburg Logo" class="education-logo">
-                        <img src="assets/images/trusted-by/Eindhoven_University_of_Technology_logo_new.svg.png" alt="TU Eindhoven Logo" class="education-logo">
-                      </div>
-                    <div class="education-content">
-                      <h5 class="card-title"> <a href="">
-                            Double BSc of Data Science and Computer Science and Engineering.</a> </h5>
-                      <h6 class="card-subtitle"> <a href="">Joint Data Science bachelor - TU Eindhoven & TU Tilburg.<br>Computer Science and Engineering bachelor - TU Eindhoven.</a> </h6>
-                      <p class="card-text text-muted">Relevant courses taken:</p>
-                    </div>
-                  </div>
-                </div>
-              </article>
-      
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      
-
-  <section class="work">
-      <div class="container">
-          <h2 class="h2" id="work">Selected Work</h2>
-          <div class="work-boxes">
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">portfolio template</h3>
-                <!-- Add small description of your project  -->
-                <p class="work-text">
-                  A free to use, minimal and accessible portfolio template for
-                  developers.
-                </p>
-                <!-- Add technologies you used to build the project -->
-                <ol class="work-technologies">
-                  <li>React</li>
-                  <li>Gatsby</li>
-                  <li>SCSS</li>
-                  <li>MDX</li>
-                </ol>
-
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="https://github.com/DavidMandado" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                  <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="https://github.com/DavidMandado"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-
-         <!-- Update img src and alt attribute  -->
-
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/portfolio-template.webp"
-                  alt="agency elevation"
-                />
-              </picture>
-            </div>
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">agencyelevation.com</h3>
-                <!-- Add small description of your project  -->
-
-                <p class="work-text">Website for Agency Elevation.</p>
-                <ol class="work-technologies">
-                  <li>React</li>
-                  <li>Gatsby</li>
-                  <li>Material UI</li>
-                </ol>
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="#" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                     <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="https://github.com/DavidMandado"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-         <!-- Update img src and alt attribute  -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/agency-elevation.webp"
-                  alt="portfolio template"
-                />
-              </picture>
-            </div>
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">contribute.dev</h3>
-                <!-- Add small description of your project  -->
-                <p class="work-text">
-                  Website for DevX A dedicated space for developer experience
-                </p>
-                <ol class="work-technologies">
-                  <li>Ruby</li>
-                  <li>SvelteKit</li>
-                  <li>Emotion</li>
-                </ol>
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="#" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                   <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-         <!-- Update img src and alt attribute  -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/contribute-dev.webp"
-                  alt="contribute dev"
-                />
-              </picture>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- I write blog posts on dev.to at https://dev.to/devsyedmohsin. I have linked my articles accordingly, so please update the article title, description, and link accordingly. For example, if you write an article on Medium, link your article to Medium. Also, don't forget to update the reaction count. -->
-
-      <section class="article">
-        <div class="container">
-          <h2 class="h2" id="blog">My Articles</h2>
-          <div class="article-boxes">
-            <article class="article-box featured-article">
-              <div class="article-textbox">
-                <div>
-                  <h3 class="h3">
-                    22 Useful CSS Tips and Tricks Every Developer Should Know
-                  </h3>
-                  <p class="article-text">
-                    Note: All the tips, tricks shared in this article are part
-                    of my GitHub repository css tips tricks A handmade
-                    collection of pro css tips tricks for developers.
-                  </p>
-                </div>
-                <div class="article-info">
-                  <a href="https://dev.to/devsyedmohsin" class="link" target="_blank" rel="noopener"
-                    >Continue reading</a
-                  >
-                  <span class="reaction-count">
-                    <img src="./assets/images/heart-outline.svg" alt="heart" />
-                    416
-                  </span>
-                </div>
-              </div>
-              <picture class="article-illustration">
-                <img
-                  src="assets/images/featured-blog.webp"
-                  alt="MacBook Pro"
-                  loading="lazy"
-                />
-              </picture>
-            </article>
-            <article class="article-box">
-              <div class="article-textbox">
-                <div>
-                  <h3 class="h4">JavaScript Default Function Parameters.</h3>
-                  <p class="article-text">
-                    In JavaScript when we call a function which expects some
-                    data to be passed in if you call that without passing
-                  </p>
-                </div>
-                <div class="article-info">
-                  <a href="https://dev.to/devsyedmohsin" class="link" target="_blank" rel="noopener"
-                    >Continue reading</a
-                  >
-                  <span class="reaction-count">
-                    <img
-                      src="./assets/images/heart-outline.svg"
-                      alt="heart"
-                      loading="lazy"
-                    />
-                    47
-                  </span>
-                </div>
-              </div>
-            </article>
-            <article class="article-box">
-              <div class="article-textbox">
-                <div>
-                  <h3 class="h4">
-                    Free Open-source portfolio template for developers ✨
-                  </h3>
-                  <p class="article-text">
-                    A beautiful, minimal and accessible portfolio template for
-                    Developers which is completely free and Open Source.
-                  </p>
-                </div>
-                <div class="article-info">
-                  <a href="https://dev.to/devsyedmohsin/free-open-source-portfolio-template-for-developers-4g1d" class="link" target="_blank" rel="noopener"
-                    >Continue reading</a
-                  >
-                  <span class="reaction-count">
-                    <img
-                      src="./assets/images/heart-outline.svg"
-                      alt="heart"
-                      loading="lazy"
-                    />
-                    177
-                  </span>
-                </div>
-              </div>
-            </article>
-            <article class="article-box">
-              <div class="article-textbox">
-                <div>
-                  <h3 class="h4">HTML tips and tricks.</h3>
-                  <div class="article-text">
-                    In my very last article I shared some JavaScript tips and
-                    tricks In this article I will be covering HTML tips and
-                    tricks.
-                  </div>
-                </div>
-                <div class="article-info">
-                  <a href="https://dev.to/devsyedmohsin" class="link" target="_blank" rel="noopener"
-                    >Continue reading</a
-                  >
-                  <span class="reaction-count">
-                    <img
-                      loading="lazy"
-                      src="./assets/images/heart-outline.svg"
-                      alt="heart"
-                    />
-                    350
-                  </span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Update skills-img src, alt  and title attributes I have added some other logos in assets/images/skill for your convenience feel free to pick one if required  -->
-
-      <section class="skills">
-        <div class="container">
-          <h2 class="h2" id="skills">My Toolkit</h2>
-          <div class="skills-imgs">
-                <img src="assets/images/skills/react.webp" alt="React" class="skills-img" loading="lazy" title="React">
-                <img src="assets/images/skills/svelte.webp" alt="Svelte" class="skills-img" loading="lazy" title="Svelte">
-                 <img src="assets/images/skills/typescript.webp" alt="Typescript" class="skills-img" loading="lazy" title="Typescript">
-                 <img src="assets/images/skills/a11y.webp" alt="Accessibility" class="skills-img" loading="lazy" title="Web Accessibility">
-                 <img src="assets/images/skills/shell.webp" alt="Shell" class="skills-img" loading="lazy" title="Shell">
-                 <img src="assets/images/skills/next-js.webp" alt="NextJS" class="skills-img" loading="lazy" title="NextJS">
-                 <img src="assets/images/skills/graphql.webp" alt="Graph Ql" class="skills-img" loading="lazy" title="Graph QL">
-                 <img src="assets/images/skills/git.webp" alt="Git" class="skills-img" loading="lazy" title="Git">
-                 <img src="assets/images/skills/html.webp" alt="CSS" class="skills-img" loading="lazy" title="CSS">
-                 <img src="assets/images/skills/js.webp" alt="JavaScript" class="skills-img" loading="lazy" title="JavaScript">
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- Replace testimonials, author name, author job, img src and, alt attributes -->
-
-      <section>
-        <h2 class="h2">Testimonials</h2>
-        <div class="container">
-          <ol class="testimonials">
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Working with Syed was a great experience. His drive for clean aesthetics and his open communication style helped us collaborate closely on the solution.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/rich-harris.png"
-                  alt="Rich Harris"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Harris Kareem</h3>
-                  <p class="testimonial-author-job">Developer @Outlets</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Syed is a fantastic UI/UX designer and developer with a keen sense for marketing, and lead generation. He's the only designer I know who also has a deep understanding for code and front-end development.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/frank-mcsherry.webp"
-                  alt="Andrew Mead"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">
-                   Andrew Mead
-                  </h3>
-                  <p class="testimonial-author-job">Chief Scientist @Logos
-                  </p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-             
-                Talented artist, experienced with various
-                media and can make any project you are working on look good. He is
-                easy to work with and is a self starter. I would work with Syed
-                again.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/brian-hirsh.png"
-                  alt="Brian Hirsh"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Brian Hirsh</h3>
-                  <p class="testimonial-author-job">Head @Zero-in</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Syed is a true professional with amazing talent. He is a creative
-                thinker, has his finger on the pulse of whats to come, and
-                absolutely one of the quickest and best problem solvers I have
-                ever met.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/adam.png"
-                  alt="Adam Argalye"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Adam Argalye</h3>
-                  <p class="testimonial-author-job">SWE @Google</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-               Syed is one of my favourite people to work with. He's my go-to colleague when trouble shooting any new technique or technology because she understands how to tackle unknown problems with gumption. 
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/val-head.png"
-                  alt="Val Head"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Val Head</h3>
-                  <p class="testimonial-author-job">CEO @Engines</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Syed is a talented artist. He is very experienced with various
-                media and can make any project you are working on look good. He is
-                easy to work with and is a self starter. I would work with Syed
-                again.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img
-                  src="assets/images/testimonials/tim-satterwhite.webp"
-                  alt="Gary Simon"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Gary Simon</h3>
-                  <p class="testimonial-author-job">A11y Advocate @W3C</p>
-                </figcaption>
-              </figure>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="contact">
-        <div class="container">
-          <h2 class="h2" id="contact">Get in contact</h2>
-          <div class="contact-content">
-            <div class="contact-textbox">
-              <!-- Please comment this component if you're not available for hire -->
-              <strong href="#" class="hire-alert">
-                <span class="indicator"></span>
-                Available for hire
-              </strong>
-              <p class="contact-text">
-                As a data and computer scientist, I specialize in machine learning models, model optimization, and data analysis+visualization. I am 
-                passionate about intersecting the data and software world to solve real-world problems and find innovative solutions.
-              </p>
-              <p class="contact-text">
-                I'm keen to work on new projects and teams to grow further my knowledge and impact in the world.
-              </p>
-              <!-- Replace src with your signatures and name -->
-              <img
-                src="assets/images/signatures.png"
-                alt="David Mandado"
-                class="signatures"
-                loading="lazy"
-              />
-            </div>
-            <form action="#" class="contact-form" netlify>
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  inputmode="email"
-                />
-              </div>
-              <div class="form-field">
-                <label for="message">How can I help you?</label>
-                <textarea name="message" id="message" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-cta">Send</button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <!-- Update href and src attributes -->
-          <nav>
-            <ol class="footer-links">
-              <li class="footer-link">
-                <a title="GitHub" href="https://github.com/DavidMandado" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/github.svg"
-                    alt="GitHub"
-                /></a>
-              </li>
-              <li class="footer-link">
-                <a title="Linkedin" href="https://www.linkedin.com/in/david-mandado-loureiro-a75a51330/" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/linkedin.svg"
-                    alt="Linkedin"
-                /></a>
-              </li>
-            </ol>
-          </nav>
-          <p class="footer-text">
-            &copy; <span>2025</span> - Website by <a target="_blank" rel="noopener" href="https://github.com/DavidMandado">David Mandado</a>
+    <section class="interests section-band" id="interests" aria-labelledby="interests-title">
+      <div class="container interests-grid">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Interests</p>
+          <h2 id="interests-title">Where I want to contribute next</h2>
+          <p>
+            I am looking for internship, work, or collaboration opportunities
+            where data science and software engineering meet real users.
           </p>
-          <label class="theme-switch" for="theme-switch">
-            <span>Dark Mode</span>
-            <input type="checkbox" id="theme-switch" role="switch"/>
-          </label>
+        </div>
+
+        <div class="interest-list" data-reveal>
+          <article>
+            <h3>Machine learning systems</h3>
+            <p>Model evaluation, explainability, and workflows that can be maintained after the notebook stage.</p>
+          </article>
+          <article>
+            <h3>Data products</h3>
+            <p>Dashboards, data pipelines, and decision tools that make analysis usable for teams.</p>
+          </article>
+          <article>
+            <h3>Product engineering</h3>
+            <p>Clean frontend interfaces, backend APIs, and reliable systems for practical products.</p>
+          </article>
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <section class="contact-strip section-band" aria-label="Contact call to action">
+      <div class="container contact-panel" data-reveal>
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Feel free to contact me for any inquiries.</h2>
+        </div>
+        <div class="contact-panel-actions">
+          <button class="pill-button primary large" type="button" data-open-contact>Get in Touch</button>
+          <button class="pill-button ghost large" type="button" data-open-resume>View resume</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-year>2026</span> David Mandado</p>
+      <div class="footer-links">
+        <a href="https://github.com/DavidMandado" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/david-mandado-loureiro-a75a51330/" target="_blank"
+          rel="noopener">LinkedIn</a>
+        <button type="button" data-open-contact>Email</button>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="modal" id="project-modal" aria-labelledby="project-modal-title">
+    <div class="modal-card project-detail">
+      <div class="modal-top">
+        <p class="eyebrow" id="project-modal-kicker">Project</p>
+        <button class="icon-button" type="button" aria-label="Close project details" data-close-modal>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="project-detail-hero">
+        <img id="project-modal-image" src="assets/images/abciamge.jpg" alt="" />
+        <div>
+          <h2 id="project-modal-title"></h2>
+          <p id="project-modal-description"></p>
+        </div>
+      </div>
+
+      <div class="project-detail-layout">
+        <aside class="project-detail-sidebar">
+          <h3>Project facts</h3>
+          <dl>
+            <div>
+              <dt>Period</dt>
+              <dd id="project-modal-period"></dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd id="project-modal-focus"></dd>
+            </div>
+          </dl>
+          <h3>Stack</h3>
+          <ul class="detail-chip-list" id="project-modal-stack"></ul>
+        </aside>
+
+        <div class="project-detail-body">
+          <div id="project-modal-sections"></div>
+          <div class="project-gallery" id="project-modal-gallery"></div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a class="pill-button primary" href="https://github.com/DavidMandado" target="_blank" rel="noopener"
+          id="project-modal-link">Open GitHub</a>
+        <button class="pill-button ghost" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="resume-modal" aria-labelledby="resume-title">
+    <div class="modal-card wide">
+      <div class="modal-top">
+        <p class="eyebrow">Resume</p>
+        <button class="icon-button" type="button" aria-label="Close resume" data-close-modal>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="resume-sheet">
+        <header class="resume-header">
+          <div>
+            <h2 id="resume-title">David Mandado Loureiro</h2>
+            <p>Data Science | Computer Science &amp; Engineering | MLOps</p>
+          </div>
+          <p>Eindhoven, Netherlands | Open to software, ML, data, and analytics roles</p>
+        </header>
+
+        <div class="resume-layout">
+          <aside>
+            <h3>Contact</h3>
+            <p>Eindhoven, Netherlands</p>
+            <p>david.manda.loureiro@gmail.com</p>
+            <p>github.com/DavidMandado</p>
+            <p>LinkedIn: david-mandado-loureiro</p>
+
+            <h3>Skills</h3>
+            <p>Python, SQL, pandas, NumPy, scikit-learn, PyTorch, TensorFlow/Keras, LightGBM, OpenCV, GeoPandas,
+              Flask/Dash, FastAPI, Docker, GitHub Actions, Linux, CI/CD, SQLite, Jupyter, Excel, business analysis.</p>
+
+            <h3>CV file</h3>
+            <p>
+              <a href="assets/documents/david_cv_professional.pdf" download>Download original PDF</a>
+            </p>
+          </aside>
+
+          <div class="resume-main">
+            <h3>Summary</h3>
+            <p>
+              Data Science and Computer Science &amp; Engineering student with
+              experience across MLOps, applied machine learning, analytics,
+              and consulting. Focused on building deployable ML systems,
+              reliable pipelines, and decision-support tools.
+            </p>
+
+            <h3>Experience</h3>
+            <article class="resume-entry">
+              <div>
+                <h4>MLOps Engineer | mih360</h4>
+                <span>Apr 2026 - Present | Eindhoven, Netherlands | Hybrid</span>
+              </div>
+              <ul>
+                <li>Architected and automated CI/CD pipelines for machine learning, moving models from experimental
+                  notebooks to production-ready APIs.</li>
+                <li>Improved deployment reproducibility and operational reliability across end-to-end ML workflows.</li>
+              </ul>
+              <p>Tools: Python, FastAPI, GitHub Actions, Docker, Git, Linux, CI/CD.</p>
+            </article>
+
+            <article class="resume-entry">
+              <div>
+                <h4>Data Consultant | 180 Degrees Consulting Tilburg</h4>
+                <span>Jan 2026 - June | Tilburg, North Brabant, Netherlands | Hybrid</span>
+              </div>
+              <ul>
+                <li>Advised organizations on data-driven strategy and operational improvement.</li>
+                <li>Conducted business analysis and developed analytical frameworks to support better decision-making.
+                </li>
+              </ul>
+              <p>Tools: Excel, data analysis, business analysis, market analysis, financial analysis.</p>
+            </article>
+
+            <article class="resume-entry">
+              <div>
+                <h4>Junior Data Scientist | mih360</h4>
+                <span>Jun 2025 - Apr 2026 | Remote</span>
+              </div>
+              <ul>
+                <li>Applied machine learning to industrial optimization and workforce analytics.</li>
+                <li>Developed predictive models, statistical learning pipelines, and decision-support systems for
+                  operational use.</li>
+              </ul>
+              <p>Tools: Python, pandas, scikit-learn, SQL, Jupyter, Git, machine learning, statistical modeling.</p>
+            </article>
+
+            <h3>Education</h3>
+            <article class="resume-entry compact">
+              <div>
+                <h4>Double Bachelor: Data Science and Computer Science &amp; Engineering</h4>
+                <span>2023 - Present | Eindhoven, Netherlands</span>
+              </div>
+              <p>
+                Joint Data Science program at TU Eindhoven and Tilburg
+                University, combined with Computer Science &amp; Engineering at
+                TU Eindhoven.
+              </p>
+              <p>
+                Coursework: Data Mining, NLP, Data Structures, Machine
+                Learning, Data Analytics, Data Ethics, Visualization,
+                Statistical Computing, Econometrics, Java Programming,
+                Computer Systems, Logic and Set Theory, Discrete Mathematics.
+              </p>
+            </article>
+
+            <h3>Selected projects</h3>
+            <article class="resume-entry compact">
+              <h4>Addressing Real-World Crime and Security Problems with Data Science</h4>
+              <span>Feb 2025 - May 2025</span>
+              <ul>
+                <li>Processed and integrated 900K+ monthly crime records, socio-economic deciles, and GeoJSON boundaries
+                  to engineer temporal and spatial features.</li>
+                <li>Built forecasting models and delivered an interactive dashboard and mapping tool for analysis and
+                  stakeholder engagement.</li>
+              </ul>
+            </article>
+
+            <article class="resume-entry compact">
+              <h4>University Data Challenge - X-ray ML Model</h4>
+              <span>Feb 2025 - Apr 2025</span>
+              <ul>
+                <li>Developed a deep learning diagnostic model for chest X-ray analysis with an integrated preprocessing
+                  and augmentation pipeline.</li>
+                <li>Evaluated model performance while balancing efficiency, ethics, and multi-class disease prediction
+                  requirements.</li>
+              </ul>
+            </article>
+
+            <article class="resume-entry compact">
+              <h4>University Airline Twitter Analysis</h4>
+              <span>Feb 2024 - Apr 2024</span>
+              <ul>
+                <li>Analyzed millions of Air France tweets from regional accounts, cleaned multilingual text, and
+                  standardized data for downstream analysis.</li>
+                <li>Stored processed data in SQLite and performed sentiment analysis to extract customer insights and
+                  evaluate support performance.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="pill-button primary" type="button" data-print-resume>Save as PDF</button>
+        <a class="pill-button ghost" href="assets/documents/david_cv_professional.pdf" download>Download CV</a>
+        <button class="pill-button ghost" type="button" data-close-modal>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="contact-modal" aria-labelledby="contact-title">
+    <div class="modal-card">
+      <div class="modal-top">
+        <p class="eyebrow">Contact</p>
+        <button class="icon-button" type="button" aria-label="Close contact form" data-close-modal>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+      <h2 id="contact-title">Start a conversation</h2>
+      <p class="modal-intro">
+        Send a short message and your email client will open with the details
+        filled in.
+      </p>
+      <form class="contact-form" id="contact-form">
+        <label>
+          Name
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <div class="modal-actions">
+          <button class="pill-button primary" type="submit">Send message</button>
+          <button class="pill-button ghost" type="button" data-copy-email>Copy email</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+
 </html>
