@@ -424,7 +424,7 @@ const sectionObserver = "IntersectionObserver" in window
     )
   : null;
 
-document.querySelectorAll("#about, #projects, #experience, #stack, #interests").forEach((section) => {
+document.querySelectorAll("#about, #projects, #experience, #courses, #interests").forEach((section) => {
   sectionObserver?.observe(section);
 });
 

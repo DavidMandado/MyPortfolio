@@ -20,6 +20,7 @@
   --blue: #1458c8;
   --blue-strong: #0a3f9b;
   --blue-soft: #dceaff;
+  --grid-line: rgba(20, 88, 200, 0.045);
   --shadow: 0 24px 70px rgba(20, 88, 200, 0.12);
   --header: rgba(247, 250, 255, 0.86);
   --radius: 8px;
@@ -28,19 +29,20 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #071525;
-  --surface: #0d1d31;
-  --surface-soft: #132b49;
-  --text: #f5f8ff;
-  --muted: #b7c4d8;
-  --faint: #8ea0b7;
-  --line: #25405f;
-  --line-strong: #45688f;
-  --blue: #7eb6ff;
-  --blue-strong: #9cc8ff;
-  --blue-soft: #12345d;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
-  --header: rgba(7, 21, 37, 0.88);
+  --bg: #101318;
+  --surface: #171b21;
+  --surface-soft: #20252d;
+  --text: #f2f0ea;
+  --muted: #b8bec8;
+  --faint: #858e9b;
+  --line: #2c333d;
+  --line-strong: #48515d;
+  --blue: #86a9c8;
+  --blue-strong: #adc7df;
+  --blue-soft: #263542;
+  --grid-line: rgba(229, 232, 235, 0.035);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+  --header: rgba(16, 19, 24, 0.88);
 }
 
 *,
@@ -58,8 +60,8 @@ body {
   margin: 0;
   font-family: "Mona Sans", Arial, sans-serif;
   background:
-    linear-gradient(rgba(20, 88, 200, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 88, 200, 0.045) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
     var(--bg);
   background-size: 32px 32px;
   color: var(--text);
@@ -396,18 +398,31 @@ a {
 }
 
 .profile-panel {
+  position: relative;
   display: grid;
   gap: 16px;
   margin: 0;
 }
 
+.profile-panel::before {
+  content: "";
+  position: absolute;
+  inset: -18px 24px 118px -18px;
+  z-index: -1;
+  border: 1px solid color-mix(in srgb, var(--blue) 32%, transparent);
+  border-radius: 56% 44% 58% 42% / 44% 54% 46% 56%;
+  background: color-mix(in srgb, var(--blue-soft) 62%, transparent);
+  transform: rotate(-4deg);
+}
+
 .portrait-frame {
   overflow: hidden;
-  aspect-ratio: 1 / 1.05;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  aspect-ratio: 1.05 / 1;
+  border: 1px solid color-mix(in srgb, var(--line-strong) 72%, transparent);
+  border-radius: 42% 58% 47% 53% / 34% 43% 57% 66%;
   background: var(--surface);
   box-shadow: var(--shadow);
+  transform: rotate(1.4deg);
 }
 
 .portrait-frame img {
@@ -415,6 +430,7 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transform: rotate(-1.4deg) scale(1.06);
 }
 
 .profile-meta {
@@ -659,28 +675,51 @@ a {
 
 .experience-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.14fr) minmax(420px, 0.86fr);
-  gap: clamp(38px, 5vw, 76px);
+  grid-template-columns: 1fr;
+  gap: clamp(72px, 8vw, 112px);
   align-items: start;
+  max-width: 1240px;
 }
 
 .work-table {
   display: grid;
-  gap: 1px;
-  overflow: hidden;
+  gap: 18px;
+  overflow: visible;
   margin-top: 42px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--line);
-  box-shadow: 0 16px 48px rgba(20, 88, 200, 0.08);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .work-row {
+  position: relative;
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 24px;
-  padding: 24px;
+  padding: 28px 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: var(--surface);
+  box-shadow: 0 16px 48px rgba(20, 88, 200, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.work-row::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 26px;
+  bottom: 26px;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--blue);
+}
+
+.work-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
 }
 
 .work-date {
@@ -732,7 +771,7 @@ a {
 
 .education-card {
   margin-top: 42px;
-  padding: 24px;
+  padding: 30px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -811,7 +850,7 @@ a {
 }
 
 .timeline h3,
-.stack-group h3,
+.course-card h3,
 .interest-list h3 {
   margin: 0;
   color: var(--text);
@@ -825,40 +864,82 @@ a {
   color: var(--muted);
 }
 
-.stack-groups {
-  display: grid;
-  gap: 22px;
+.course-section {
   margin-top: 42px;
 }
 
-.stack-group {
-  padding-bottom: 22px;
+.course-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
 }
 
-.stack-group:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+.course-section-heading p:last-child {
+  max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-.chip-grid {
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.course-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 14px 42px rgba(20, 88, 200, 0.07);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.course-topline {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.chip-grid span {
+.course-topline span {
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.course-topline strong {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 0 14px;
+  min-height: 28px;
+  padding: 0 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  color: var(--text);
-  background: var(--surface);
-  font-size: 0.92rem;
-  font-weight: 760;
+  color: var(--blue-strong);
+  background: var(--blue-soft);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.course-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
 }
 
 .interests {
@@ -1453,6 +1534,18 @@ a {
   .work-row {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .course-section-heading {
+    display: block;
+  }
+
+  .course-section-heading p:last-child {
+    margin-top: 8px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-detail-hero,
